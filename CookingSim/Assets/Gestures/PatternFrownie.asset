@@ -10,31 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ce0fdb4e39b5744abf0c061bd2a3e30, type: 3}
-  m_Name: PatternChopping
+  m_Name: PatternFrownie
   m_EditorClassIdentifier: 
-  id: Chop
+  id: Frown
   points: []
   gesture:
     lines:
     - points:
-      - {x: 0.125, y: 0.875}
-      - {x: 0.125, y: 0.25}
+      - {x: 0.6875, y: 0.75}
+      - {x: 0.6875, y: 0.5}
       closedLine: 0
     - points:
-      - {x: 0.125, y: 0.25}
-      - {x: 0.375, y: 0.125}
+      - {x: 0.3125, y: 0.5}
+      - {x: 0.3125, y: 0.75}
       closedLine: 0
     - points:
-      - {x: 0.375, y: 0.125}
-      - {x: 0.625, y: 0.125}
-      closedLine: 0
-    - points:
-      - {x: 0.625, y: 0.125}
-      - {x: 0.875, y: 0.25}
-      closedLine: 0
-    - points:
-      - {x: 0.875, y: 0.25}
-      - {x: 0.875, y: 0.875}
+      - {x: 0.17744611, y: 0.16915423}
+      - {x: 0.36650082, y: 0.3830846}
+      - {x: 0.6351576, y: 0.37810946}
+      - {x: 0.7844113, y: 0.19402987}
       closedLine: 0
   useLinesOrder: 0
   useLinesDirections: 0
