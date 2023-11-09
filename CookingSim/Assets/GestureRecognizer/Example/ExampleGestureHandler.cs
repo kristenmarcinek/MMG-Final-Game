@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using GestureRecognizer;
 using System.Linq;
+using TMPro;
 
 public class ExampleGestureHandler : MonoBehaviour {
 
-	public Text textResult;
+	public TextMeshProUGUI textResult;
 
 	public Transform referenceRoot;
 
