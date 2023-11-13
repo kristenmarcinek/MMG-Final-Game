@@ -6,45 +6,62 @@ using GestureRecognizer;
 using System.Linq;
 using TMPro;
 
-public class ExampleGestureHandler : MonoBehaviour {
+public class ExampleGestureHandler : MonoBehaviour
+{
 
-	public TextMeshProUGUI textResult;
 
-	public Transform referenceRoot;
+    public TextMeshProUGUI textResult;
 
-	GesturePatternDraw[] references;
+    public Transform referenceRoot;
 
-	void Start () {
-		references = referenceRoot.GetComponentsInChildren<GesturePatternDraw> ();
-	}
+    GesturePatternDraw[] references;
 
-	void ShowAll(){
-		for (int i = 0; i < references.Length; i++) {
-			references [i].gameObject.SetActive (true);
-		}
-	}
+    void Start()
+    {
+        references = referenceRoot.GetComponentsInChildren<GesturePatternDraw>();
+    }
 
-	public void OnRecognize(RecognitionResult result){
-		StopAllCoroutines ();
-		ShowAll ();
-		if (result != RecognitionResult.Empty) {
-			textResult.text = result.gesture.id + "\n" + Mathf.RoundToInt (result.score.score * 100) + "%";
-			StartCoroutine (Blink (result.gesture.id));
-		} else {
-			textResult.text = "?";
-		}
-	}
+    void ShowAll()
+    {
+        for (int i = 0; i < references.Length; i++)
+        {
+            references[i].gameObject.SetActive(true);
+        }
+    }
 
-	IEnumerator Blink(string id){
-		var draw = references.Where (e => e.pattern.id == id).FirstOrDefault ();
-		if (draw != null) {
-			var seconds = new WaitForSeconds (0.1f);
-			for (int i = 0; i <= 20; i++) {
-				draw.gameObject.SetActive (i % 2 == 0);
-				yield return seconds;
-			}
-			draw.gameObject.SetActive (true);
-		}
-	}
+    public void OnRecognize(RecognitionResult result)
+    {
+        StopAllCoroutines();
+        ShowAll();
+        if (result != RecognitionResult.Empty)
+        {
+            textResult.text = result.gesture.id + "\n" + Mathf.RoundToInt(result.score.score * 100) + "%";
+            float convertedScore = Mathf.RoundToInt(result.score.score * 100);
+            RecipeManager.sharedInstance.scoresList.Add(convertedScore);
+
+            StartCoroutine(Blink(result.gesture.id));
+        }
+        else
+        {
+            textResult.text = "?";
+        }
+    }
+
+
+
+    IEnumerator Blink(string id)
+    {
+        var draw = references.Where(e => e.pattern.id == id).FirstOrDefault();
+        if (draw != null)
+        {
+            var seconds = new WaitForSeconds(0.1f);
+            for (int i = 0; i <= 20; i++)
+            {
+                draw.gameObject.SetActive(i % 2 == 0);
+                yield return seconds;
+            }
+            draw.gameObject.SetActive(true);
+        }
+    }
 
 }
