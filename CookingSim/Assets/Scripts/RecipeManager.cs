@@ -10,6 +10,7 @@ public class RecipeManager : MonoBehaviour
     public GameObject targetObject;
     public GameObject[] recipeSteps;
     public int stepTracker = 0;
+    
 
 
     void Awake()
@@ -26,7 +27,8 @@ public class RecipeManager : MonoBehaviour
 
         recipeSteps = GameObject.FindGameObjectsWithTag("step");
         
-
+        
+        
         
     }
 
