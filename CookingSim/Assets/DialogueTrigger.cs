@@ -21,6 +21,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             Debug.Log("interact pressed");
             DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
         }
