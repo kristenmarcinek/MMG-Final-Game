@@ -14,7 +14,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     private void Start()
     {
-        
+        DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             
             Debug.Log("interact pressed");
-            DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+            
         }
     }
 }
