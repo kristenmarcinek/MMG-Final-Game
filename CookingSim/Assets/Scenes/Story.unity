@@ -1214,6 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: 6cf48bb6d89824cc69e35b43f9a1aca6, type: 3}
+  sceneTracker: 1
 --- !u!1 &1439194338
 GameObject:
   m_ObjectHideFlags: 0
