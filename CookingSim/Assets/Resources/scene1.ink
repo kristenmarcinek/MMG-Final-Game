@@ -24,7 +24,7 @@ Today is Thursday.
 
 Your husband is at work.
 
-Your kids are at school.
+Your kids are at school. They will be home late. One has football practice and the other has rehearsal for the school play.
 
 You have the whole day to yourself and an empty house at your disposal.
 
@@ -82,11 +82,11 @@ Have you...
 
 === 5PM ===
 
-5:00PM already?
+Uh oh... 5:00PM already?
 
-Time to start dinner!
+It's already ime to start dinner!
 
-At least you enjoy cooking.
+At least you enjoy cooking. That will be fun. Right?
 
 You found this new recipe for homemade meatballs you've been wanting to try.
 
