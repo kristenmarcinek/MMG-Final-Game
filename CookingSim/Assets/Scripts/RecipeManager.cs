@@ -2,15 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using GestureRecognizer;
 
+[System.Serializable]
+public class StepData
+{
+    public string stepName;
+    public List<GameObject> childObjectsList = new List<GameObject>();
+    public GameObject recognizer;
+
+}
 public class RecipeManager : MonoBehaviour
 {
-    public List<float> scoresList;
     public static RecipeManager sharedInstance;
-    public GameObject targetObject;
-    public GameObject[] recipeSteps;
-    public int stepTracker = 0;
-    
+
+    public List<float> scoresList;
+    public float currentScore;
+
+    // A List to store all steps with their own list of child gameobjects
+    public List<StepData> stepsList = new List<StepData>();
+
+
+    private int m_currentStepIndex;
+    private int m_currentChildIndex;
+
 
 
     void Awake()
@@ -25,82 +40,71 @@ public class RecipeManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        recipeSteps = GameObject.FindGameObjectsWithTag("step");
-        
-        
-        
-        
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       foreach (GameObject step in recipeSteps)
+        if (stepsList.Count > 0 && stepsList[0].childObjectsList.Count > 0)
         {
-            targetObject = step;
-            DeactivateAllChildren();
 
-          
+            m_currentStepIndex = 0;
+            m_currentChildIndex = 0;
+            Debug.Log(stepsList[m_currentStepIndex].childObjectsList[m_currentChildIndex]);
+
+            InitializeSteps();
         }
+        else
+        {
+            Debug.LogError("Invalid stepsList configuration. Make sure there is at least one step with at least one child object.");
+        }
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        // Check if you are in the last index of child objects in the current step
+        if (m_currentChildIndex < stepsList[m_currentStepIndex].childObjectsList.Count - 1)
         {
-            NextStep();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            foreach (float score in scoresList)
+            if (currentScore > 50)
             {
-                Debug.Log("the scores list contains:" + score.ToString());
-
+                //reseting the score for the next step
+                currentScore = 0;
+                ActivateNextChild();
             }
 
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
+        else
         {
-            foreach (float score in scoresList)
-            {
-                RecipeScore();
-
-            }
-
+            // If yes, activate the next step
+            ActivateNextStep();
         }
 
-        // Check for user input or any other condition to activate the objects
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Activate the objects
-            ActivateAllChildren();
-        }
 
-        // Check for user input or any other condition to deactivate the objects
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // Deactivate the objects
-            DeactivateAllChildren();
-        }
 
 
     }
 
 
+    private void InitializeSteps()
+    {
+        foreach (var step in stepsList)
+        {
+            foreach (var childObject in step.childObjectsList)
+            {
+                step.recognizer.SetActive(false);
+                childObject.SetActive(false);
+            }
+        }
+
+        stepsList[m_currentStepIndex].recognizer.SetActive(true);
+        stepsList[m_currentStepIndex].childObjectsList[m_currentChildIndex].SetActive(true);
+
+    }
 
     public void RecipeScore()
     {
-        //foreach (float score in scoresList)
-        //{
-        //    float Sum = 0;
-        //    Sum += score;
-        //    float average = Sum / scoresList.Count;
-        //    Debug.Log("the average is:" + average.ToString());
-        //}
 
         float total = scoresList.Sum();
         float average = total / scoresList.Count;
@@ -108,69 +112,64 @@ public class RecipeManager : MonoBehaviour
 
     }
 
-    void ActivateAllChildren()
+
+
+    private void ActivateNextChild()
     {
-        // Check if the targetObject is assigned
-        if (targetObject != null)
+        if (m_currentChildIndex < stepsList[m_currentStepIndex].childObjectsList.Count - 1)
         {
-            // Activate all children of the targetObject
-            foreach (Transform child in targetObject.transform)
-            {
-                child.gameObject.SetActive(true);
-            }
-        }
-        else
-        {
-            Debug.LogError("Target object not assigned");
+            stepsList[m_currentStepIndex].childObjectsList[m_currentChildIndex].SetActive(false);
+            m_currentChildIndex++;
+            stepsList[m_currentStepIndex].childObjectsList[m_currentChildIndex].SetActive(true);
+
+
         }
     }
 
-    void DeactivateAllChildren()
+    private void ActivateNextStep()
     {
-        // Check if the targetObject is assigned
-        if (targetObject != null)
+        if (m_currentStepIndex < stepsList.Count - 1)
         {
-            // Deactivate all children of the targetObject
-            foreach (Transform child in targetObject.transform)
+            m_currentStepIndex++;
+            m_currentChildIndex = 0;
+
+
+            Destroy(stepsList[m_currentStepIndex - 1].recognizer);
+
+            // Deactivate all children of the previous step
+            foreach (var step in stepsList)
             {
-                child.gameObject.SetActive(false);
+                foreach (var childObject in step.childObjectsList)
+                {
+
+                    childObject.SetActive(false);
+                }
             }
+
+            stepsList[m_currentStepIndex].recognizer.SetActive(true);
+            // Activate the first child of the current step
+            stepsList[m_currentStepIndex].childObjectsList[m_currentChildIndex].SetActive(true);
         }
         else
         {
-            Debug.LogError("Target object not assigned");
+            Debug.LogWarning("No more steps to activate.");
         }
+
     }
 
-    void ActivateNextChild()
-    {
-        // Check if the targetObject is assigned
-        if (targetObject != null)
-        {
-            // Check if the stepTracker is within the range of the children count
-            if (stepTracker < targetObject.transform.childCount)
-            {
-                // Activate the next child
-                targetObject.transform.GetChild(stepTracker).gameObject.SetActive(true);
-                // Increment the stepTracker
-                stepTracker++;
-            }
-            else
-            {
-                Debug.Log("No more children to activate");
-            }
-        }
-        else
-        {
-            Debug.LogError("Target object not assigned");
-        }
-    }   
 
-    void NextStep()
-    {
-        DeactivateAllChildren();
-        stepTracker++;
-        targetObject = GameObject.Find("Step " + stepTracker.ToString());
-        ActivateAllChildren();
-    }
+    //private bool AreChildrenActive(int stepIndex)
+    //{
+    //    foreach (var childObject in stepsList[stepIndex].childObjectsList)
+    //    {
+    //        if (!childObject.activeSelf)
+    //        {
+    //            return false;
+    //        }
+    //    }
+    //    return true;
+    //}
+
+
+
 }

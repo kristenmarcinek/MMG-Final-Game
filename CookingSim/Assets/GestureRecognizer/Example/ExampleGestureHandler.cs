@@ -38,6 +38,7 @@ public class ExampleGestureHandler : MonoBehaviour
             textResult.text = result.gesture.id + "\n" + Mathf.RoundToInt(result.score.score * 100) + "%";
             float convertedScore = Mathf.RoundToInt(result.score.score * 100);
             RecipeManager.sharedInstance.scoresList.Add(convertedScore);
+            RecipeManager.sharedInstance.currentScore = convertedScore;
 
             StartCoroutine(Blink(result.gesture.id));
         }
