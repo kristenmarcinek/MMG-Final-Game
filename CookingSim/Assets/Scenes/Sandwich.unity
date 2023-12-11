@@ -875,8 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfThreads: 1
-  patterns:
-  - {fileID: 11400000, guid: 29fd22805be9f468ca4b53c3ec241779, type: 2}
+  patterns: []
 --- !u!1 &591620756
 GameObject:
   m_ObjectHideFlags: 0

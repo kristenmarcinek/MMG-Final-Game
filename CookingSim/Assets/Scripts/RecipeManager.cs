@@ -26,6 +26,7 @@ public class RecipeManager : MonoBehaviour
     private int m_currentStepIndex;
     private int m_currentChildIndex;
 
+    private DrawDetector m_drawDetector;
 
 
     void Awake()
@@ -40,6 +41,7 @@ public class RecipeManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        m_drawDetector = GameObject.Find("Canvas/DrawArea").GetComponent<DrawDetector>();
     }
 
     private void Start()
@@ -133,7 +135,7 @@ public class RecipeManager : MonoBehaviour
             m_currentStepIndex++;
             m_currentChildIndex = 0;
 
-
+            stepsList[m_currentStepIndex - 1].recognizer.SetActive(false);
             Destroy(stepsList[m_currentStepIndex - 1].recognizer);
 
             // Deactivate all children of the previous step
@@ -149,6 +151,14 @@ public class RecipeManager : MonoBehaviour
             stepsList[m_currentStepIndex].recognizer.SetActive(true);
             // Activate the first child of the current step
             stepsList[m_currentStepIndex].childObjectsList[m_currentChildIndex].SetActive(true);
+
+            // Set the new recognizer for the DrawDetector script
+
+            if (m_drawDetector != null)
+            {
+                Recognizer newRecognizer = stepsList[m_currentStepIndex].recognizer.GetComponent<Recognizer>();
+                m_drawDetector.SetRecognizer(newRecognizer);
+            }
         }
         else
         {

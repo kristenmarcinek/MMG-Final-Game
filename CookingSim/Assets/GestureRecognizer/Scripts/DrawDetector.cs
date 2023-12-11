@@ -62,6 +62,12 @@ namespace GestureRecognizer
             maxLines = Mathf.Max(minLines, maxLines);
         }
 
+        public void SetRecognizer(Recognizer newRecognizer)
+        {
+            recognizer = newRecognizer;
+        }
+
+
         public void UpdateLines()
         {
             while (lines.Count < data.lines.Count)
