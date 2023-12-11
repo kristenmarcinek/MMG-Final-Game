@@ -13,13 +13,14 @@ public class DialogueTrigger : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        sceneTracker++;
+        
         
     }
     private void Start()
     {
         if (SceneManager.GetActiveScene().name == "Story")
         {
+            sceneTracker++;
             inkJSON = Resources.Load<TextAsset>("scene" + sceneTracker);
             DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
         }
