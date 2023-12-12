@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public RecipeManager recipeManager;
+    public string sceneName;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class SceneController : MonoBehaviour
     {
         if(recipeManager.lastStepCompleted == true)
         {
-            SceneManager.LoadScene("Story");
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
