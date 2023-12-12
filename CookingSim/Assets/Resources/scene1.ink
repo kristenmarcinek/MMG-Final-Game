@@ -85,7 +85,7 @@ Have you...
 
 Uh oh... 5:00PM already?
 
-It's already ime to start dinner!
+It's already time to start dinner!
 
 At least you enjoy cooking. That will be fun. Right?
 
