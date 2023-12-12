@@ -28,6 +28,8 @@ public class RecipeManager : MonoBehaviour
 
     private DrawDetector m_drawDetector;
 
+    public bool lastStepCompleted = false;
+
 
     void Awake()
     {
@@ -128,7 +130,7 @@ public class RecipeManager : MonoBehaviour
         }
     }
 
-    private void ActivateNextStep()
+    protected void ActivateNextStep()
     {
         if (m_currentStepIndex < stepsList.Count - 1)
         {
@@ -163,6 +165,7 @@ public class RecipeManager : MonoBehaviour
         else
         {
             Debug.LogWarning("No more steps to activate.");
+            lastStepCompleted = true;
         }
 
     }
