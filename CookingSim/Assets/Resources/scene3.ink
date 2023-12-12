@@ -1,9 +1,47 @@
-You hear an alarm buzzing near your ear. You wake up...
+EXTERNAL playScene(sceneName)
+Buffer
 
-As your eyes slowly open, you think about your day. It's Friday! You know your kids have had a busy school week, maybe you can make a special breakfast to send them off into the last day before their weekend?
+You finished cooking the omelettes. It took a little longer than anticipated, but that's okay, the kids should be done getting ready to come down to eat anytime now. 
 
-*[You grab your phone to turn off the alarm. Since you're already on it, it wouldn't hurt to scroll for a minute, would it?] -> CheckYourPhone
+They smell delicious. You certainly can't wait to dig in.
 
-=== CheckYourPhone ===
-*[Scroll through Facebook] You take a brief look at Facebook. As you scroll through post after post mindlessly, you come across a cooking video. You pause to see what they're making, and you see some delicious, cheesey omelettes. Your stomach rumbles at the sight. Maybe that would make a good breakfast for the kids! -> END
-*[Check your texts] You haven't gotten any texts yet today. It is only 6 AM.... -> CheckYourPhone
+You hear the roaring of two sets of preteen footsteps barrel down the stairs.  
+
+"Hey kids, breakfast is ready!" You relay to them. 
+
+"Hi Mom!" They say in unison.
+
+As you bring the plates over from the counter to the table, you see them heading for the door. 
+
+"No time to eat now mom we have to get to practice this morning!"
+
+"Yeah, mom!"
+
+"Don't forget your lunches, please!" You called out to them. 
+
+They run back over to grab their lunches. Thankfully, for today, their father prepared them. 
+
+"Bye, mom, see you later" They excitedly yell as they run out the door. 
+
+No thank you. No kisses goodbye. You miss those sweet days. It's okay, though, because you have enough love for everyone. 
+
+You're alone for the rest of today until your family arrives home, as usual. 
+
+You think of some of the things you have to do. Are there things you have been putting off? Today has been a rather uneventful Friday so far. Nothing to do...
+
+You realize it has been a few hours since breakfast. Maybe you could heat up a cold omelette for lunch so it doesn't go to waste?
+
+*[You go to heat up the omelette] As you go to heat up the omelette, you realize you really would rather not have leftovers for lunch today. -> LunchChoice
+
+=== LunchChoice ===
+
+Maybe you can make something light for today.  
+
+Do you make?
+
+*[A sandwich.] Let's do it.
+~ playScene("Sandwich")
+->DONE
+*[A salad.] Let's do it.
+~ playScene("Salad")
+-> END

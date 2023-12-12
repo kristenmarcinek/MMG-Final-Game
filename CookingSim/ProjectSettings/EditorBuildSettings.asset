@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Salad.unity
     guid: 4d8d7bf46fce648e1a330ab00717cc02
+  - enabled: 1
+    path: Assets/Scenes/Breakfast.unity
+    guid: ad17df56268bf824a8c717528993ee8b
+  - enabled: 1
+    path: Assets/Scenes/Sandwich.unity
+    guid: afeed46a1db954e30a0f49eb17b34aca
+  - enabled: 1
+    path: Assets/Scenes/Spaghetti.unity
+    guid: b27c91fba5f8e4fb68c0daff5ceec9f4
+  - enabled: 1
+    path: Assets/Scenes/Story.unity
+    guid: 82704710cb2317d46805f71989b6e7b0
   m_configObjects: {}

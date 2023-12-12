@@ -1,3 +1,4 @@
+EXTERNAL playScene(sceneName)
 Buffer
 
 Welcome to Suburbia. 
@@ -97,5 +98,7 @@ You know he had a big presentation today.
 It would be nice to surprise him when he gets home, right?
 
 Let's get started...
+~ playScene ("Spaghetti")
+
 
 - -> END

@@ -80,7 +80,11 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
         currentStory = new Story(inkJSON.text);
-        //inkExternalFunctions.Bind(currentStory);
+        
+        currentStory.BindExternalFunction("playScene", (string sceneName) =>
+        {
+            SceneManager.LoadScene(sceneName);
+        });
 
         ContinueStory();
 

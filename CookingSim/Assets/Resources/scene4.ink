@@ -1,23 +1,36 @@
-You finished cooking the omelettes. It took a little longer than anticipated, but that's okay, the kids should be done getting ready to come down to eat anytime now. 
+Buffer
 
-They smell delicious. You certainly can't wait to dig in.
+After you finish preparing your meal, you sit down to eat it.
 
-You hear the roaring of two sets of preteen footsteps barrel down the stairs.  
+What should you watch today?
 
-"Hey kids, breakfast is ready!" You relay to them. 
+*[Netflix] You scan through Netflix's catalog. -> Netflix
+*[YouTube] You look through the recommendations of videos on your account. -> YouTube
+*[HBO Max]  You put on Friends. -> Friends
 
-"Hi Mom!" They say in unison.
+=== Netflix === 
 
-As you bring the plates over from the counter to the table, you see them heading for the door. 
+You wonder why you keep paying for this when you feel like you can never find something satisfying to watch. 
 
-"No time to eat now mom we have to get to practice this morning!"
+You eventually settle on Squid Game. You know your kids have been raving about it forever, maybe now is the time to catch up. -> Evening
 
-"Yeah, mom!"
+=== YouTube ===
 
-"Don't forget your lunches, please!" You called out to them. 
+Lots of video games and home project tutorials. 
 
-They run back over to grab their lunches. Thankfully, for today, their father prepared them. 
+You look up music videos from your youth to reminisce a little. -> Evening
 
-"Bye, mom, see you later" They excitedly yell as they run out the door. 
+=== Friends ===
+It's a classic. -> Evening
 
-No thank you. No kisses goodbye. You miss those sweet days. It's okay, though, because you have enough love for everyone. -> END
+=== Evening ===
+
+You watch for a while.
+
+It's getting later.
+
+You realize you should be starting dinner soon.
+
+Blahblahblah
+
+->END
