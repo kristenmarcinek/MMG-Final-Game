@@ -23,6 +23,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     public GameObject continueButton;
+
+    public GameObject spriteToShow;
     //private InkExternalFunctions inkExternalFunctions;
 
     private void Awake()
@@ -84,6 +86,20 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("playScene", (string sceneName) =>
         {
             SceneManager.LoadScene(sceneName);
+        });
+        
+        currentStory.BindExternalFunction("showSprite", (string spriteName) =>
+        {
+            spriteToShow = GameObject.Find(spriteName).transform.GetChild(0).gameObject;
+            spriteToShow.SetActive(true);
+            
+        }); 
+
+        currentStory.BindExternalFunction("hideSprite", (string spriteName) =>
+        {
+                
+                spriteToShow = GameObject.Find(spriteName).transform.GetChild(0).gameObject;
+            spriteToShow.SetActive(false);
         });
 
         ContinueStory();

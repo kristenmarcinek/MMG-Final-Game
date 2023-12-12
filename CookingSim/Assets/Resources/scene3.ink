@@ -1,4 +1,6 @@
 EXTERNAL playScene(sceneName)
+EXTERNAL showSprite(spriteName)
+EXTERNAL hideSprite(spriteName)
 Buffer
 
 You finished cooking the omelettes. 
@@ -11,7 +13,10 @@ They smell delicious. You certainly can't wait to dig in.
 
 You hear the roaring of two sets of preteen footsteps barrel down the stairs.  
 
-"Hey kids, breakfast is ready!" You relay to them. 
+"Hey kids, breakfast is ready!" You relay to them.
+
+~ showSprite("KidSprite1")
+~ showSprite("KidSprite2")
 
 "Hi Mom!" They say in unison.
 
@@ -26,6 +31,9 @@ As you bring the plates over from the counter to the table, you see them heading
 They run back over to grab their lunches. Thankfully, for today, their father prepared them. 
 
 "Bye, mom, see you later" They excitedly yell as they run out the door. 
+
+~ hideSprite ("KidSprite1")
+~ hideSprite ("KidSprite2")
 
 No thank you. No kisses goodbye. You miss those sweet days. 
 
