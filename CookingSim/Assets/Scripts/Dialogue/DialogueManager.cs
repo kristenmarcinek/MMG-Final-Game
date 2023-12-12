@@ -22,7 +22,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     public GameObject continueButton;
+<<<<<<< Updated upstream
     
+=======
+
+
+>>>>>>> Stashed changes
     private void Awake()
     {
         if (instance !=null)
@@ -31,8 +36,11 @@ public class DialogueManager : MonoBehaviour
         }
         instance = this;
 
+<<<<<<< Updated upstream
          //dialogueIsPlaying = true;
         //dialoguePanel.SetActive(true);
+=======
+>>>>>>> Stashed changes
     }
 
     public static DialogueManager GetInstance()
@@ -77,6 +85,14 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
         currentStory = new Story(inkJSON.text);
         
+<<<<<<< Updated upstream
+=======
+        currentStory.BindExternalFunction("playScene",(string sceneName) =>
+        {
+            SceneManager.LoadScene(sceneName);
+            Debug.Log("Scene name: " + sceneName);
+        }); 
+>>>>>>> Stashed changes
         ContinueStory();
       
 
@@ -96,6 +112,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        currentStory.UnbindExternalFunction("playScene");
     }
 
     public void ContinueStory()
