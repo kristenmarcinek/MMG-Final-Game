@@ -5,13 +5,14 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
 
     private static DialogueManager instance;
 
-    
+
     private Story currentStory;
 
     public bool dialogueIsPlaying;
@@ -22,17 +23,20 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     public GameObject continueButton;
-    
+    private InkExternalFunctions inkExternalFunctions;
+
     private void Awake()
     {
-        if (instance !=null)
+        if (instance != null)
         {
             Debug.LogWarning("There is more than one instance of DialogueManager");
         }
         instance = this;
 
-         //dialogueIsPlaying = true;
+        //dialogueIsPlaying = true;
         //dialoguePanel.SetActive(true);
+
+        inkExternalFunctions = new InkExternalFunctions();
     }
 
     public static DialogueManager GetInstance()
@@ -44,12 +48,12 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
-        
+
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices)
         {
-            choicesText[index]= choice.GetComponentInChildren<TextMeshProUGUI>();
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
 
@@ -76,9 +80,10 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
         currentStory = new Story(inkJSON.text);
-        
+        inkExternalFunctions.Bind(currentStory);
+
         ContinueStory();
-      
+
 
         if (currentStory.canContinue)
         {
@@ -163,7 +168,7 @@ public class DialogueManager : MonoBehaviour
             choices[i].gameObject.SetActive(false);
         }
         ContinueStory();
-        
+
     }
 }
 

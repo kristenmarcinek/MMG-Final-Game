@@ -1,3 +1,5 @@
+EXTERNAL playScene(sceneName)
+
 You're alone for the rest of today until your family arrives home, as usual. 
 
 You think of some of the things you have to do. Are there things you have been putting off? Today has been a rather uneventful Friday so far. Nothing to do...
@@ -12,5 +14,9 @@ Maybe you can make something light for today.
 
 Do you make?
 
-*[A sandwich.] -> END
-*[A salad.] -> END
+*[A sandwich.] 
+~ playScene()
+-> END
+*[A salad.] 
+~ playScene()
+-> END
