@@ -263,8 +263,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Result
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4d7301a4caee6e349818c5f9ef4895f5, type: 2}
+  m_sharedMaterial: {fileID: -9053972510010104131, guid: 4d7301a4caee6e349818c5f9ef4895f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.25, b: 0.25, a: 1}
+  m_Color: {r: 0.7843138, g: 0.4901961, b: 0.43921572, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -882,7 +882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.25, b: 0.25, a: 1}
+  m_Color: {r: 0.7843138, g: 0.4901961, b: 0.43921572, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43867922, g: 0.9633016, b: 1, a: 1}
+  m_Color: {r: 0.83921576, g: 0.6784314, b: 0.59607846, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3881,7 +3881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.43867922, g: 0.9633016, b: 1, a: 1}
+  m_Color: {r: 0.83921576, g: 0.6784314, b: 0.59607846, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3933,6 +3933,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1157493913}
     m_Modifications:
+    - target: {fileID: 1098095014828710829, guid: 5cadd9785e0bd6c49a4e1de6d1f050b7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098095014828710829, guid: 5cadd9785e0bd6c49a4e1de6d1f050b7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098095014828710829, guid: 5cadd9785e0bd6c49a4e1de6d1f050b7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.83921576
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128145487232084983, guid: 5cadd9785e0bd6c49a4e1de6d1f050b7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.43921572
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128145487232084983, guid: 5cadd9785e0bd6c49a4e1de6d1f050b7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128145487232084983, guid: 5cadd9785e0bd6c49a4e1de6d1f050b7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7843138
+      objectReference: {fileID: 0}
     - target: {fileID: 5927935588064378154, guid: 5cadd9785e0bd6c49a4e1de6d1f050b7, type: 3}
       propertyPath: m_Name
       value: Image Dunking
@@ -4110,9 +4134,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2399258370446301477, guid: 6de3eca228d0d734ba6754ccd02d172c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.59607846
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399258370446301477, guid: 6de3eca228d0d734ba6754ccd02d172c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 2399258370446301477, guid: 6de3eca228d0d734ba6754ccd02d172c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.83921576
+      objectReference: {fileID: 0}
     - target: {fileID: 2878995089701464807, guid: 6de3eca228d0d734ba6754ccd02d172c, type: 3}
       propertyPath: m_Name
       value: Image Rolling
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573155605400299458, guid: 6de3eca228d0d734ba6754ccd02d172c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.43921572
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573155605400299458, guid: 6de3eca228d0d734ba6754ccd02d172c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573155605400299458, guid: 6de3eca228d0d734ba6754ccd02d172c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7843138
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
